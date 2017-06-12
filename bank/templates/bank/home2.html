@@ -1,0 +1,22 @@
+{% extends 'bank/base.html' %}
+{% block title %}home2{% endblock %}
+
+{% block body %}
+
+      {% for album in all_albums %}
+<img src="{{ album.album_logo.url }}  " style="height: 59px; width: 55px;"/>
+{% endfor %}
+<div>
+  <a href="{% url 'bank:index' %}">
+     <img src="download.jpg" class="img-responsive" style="height: 100px" />
+  </a>
+</div>
+
+
+      <a href="{% url 'bank:index' %}">
+                    <img src="download.jpg" class="img-responsive" style="height: 100px" >
+                </a>
+
+
+
+{% endblock %}
