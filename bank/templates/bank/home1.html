@@ -1,0 +1,26 @@
+{% extends 'bank/base.html' %}
+{% block title %}home1{% endblock %}
+
+{% block body %}
+
+      {% for album in all_albums %}
+<img src="{{ album.upload_paper.url }}  " style="height: 100px; width: 155px;"/>
+{% endfor %}
+
+<div>
+  <a href="{% url 'bank:index' %}">
+      cse third sem
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyqIX20IptABf5Ob_i-DTPrZy-WIehKeOedux12nP4dHEysjJs4A" class="img-responsive" style="height: 100px" />
+  </a>
+</div>
+ <br>
+<br>
+
+      <a href="{% url 'bank:index2' %}">
+           cse fourth sem
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmukXzRPSCnAbS1oiH9Tz3kV9cu0TjntwytHR4P1iBEXppEdybeg" class="img-responsive" style="height: 100px" >
+                </a>
+
+
+
+{% endblock %}

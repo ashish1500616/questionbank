@@ -1,0 +1,25 @@
+{% extends 'bank/base.html' %}
+{% block title %}home3{% endblock %}
+
+{% block body %}
+
+      {% for album in all_albums %}
+<img src="{{ album.upload_paper.url }}  " style="height: 59px; width: 55px;"/>
+{% endfor %}
+<div>
+
+  <a href="{% url 'bank:mech' %}">
+      mech 3rd sem
+     <img src="http://sitt.ac.in/wp-content/uploads/2015/09/mech.jpg" class="img-responsive" style="height: 100px" />
+  </a>
+</div>
+
+<br>
+<br>
+
+<a href="{% url 'bank:mech2' %}">
+     mech 4th sem
+     <img src="http://www.4dsp.com/Pictures/jpeg_compression_result.jpg" class="img-responsive" style="height: 100px" />
+</a>
+
+{% endblock %}

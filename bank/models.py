@@ -3,23 +3,24 @@ from django.core.urlresolvers import reverse
 
 
 class Album(models.Model):
-    artist = models.CharField(max_length=250)
-    album_title = models.CharField(max_length=500)
-    genre = models.CharField(max_length=100)
-    album_logo = models.FileField(default=False)
-    a = models.FileField()
+    subject = models.CharField(max_length=250,default=False)
+    semester = models.CharField(max_length=250)
+    branch = models.CharField(max_length=500)
+    concatenate = models.CharField(max_length=100)
+    upload_paper = models.FileField(default=False)
+    a = models.FileField(default=False)
 
     def get_absolute_url(self):
        return reverse('bank:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
-         return self.artist
+         return self.subject
 
 class Song(models.Model):
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
-    file_type = models.CharField(max_length=10)
-    song_title = models.CharField(max_length=250)
-    song_logo = models.FileField()
+    subject = models.ForeignKey(Album, on_delete=models.CASCADE)
+    semester = models.CharField(max_length=10)
+    year = models.CharField(max_length=250)
+    upload_solutions = models.FileField()
     is_favorite = models.BooleanField(default=False)
 
     def get_absolute_url(self):
@@ -27,6 +28,19 @@ class Song(models.Model):
 
 
     def __str__(self):
-        return self.song_title
+        return self.year
 
 
+class Test(models.Model):
+    subject = models.CharField(max_length=250,default=False)
+    semester = models.CharField(max_length=250)
+    branch = models.CharField(max_length=500)
+    concatenate = models.CharField(max_length=100)
+    upload_paper = models.FileField(default=False)
+    a = models.FileField(default=False)
+
+    def get_absolute_url(self):
+       return reverse('bank:detail', kwargs={'pk': self.pk})
+
+    def __str__(self):
+         return self.subject

@@ -4,19 +4,22 @@
 {% block body %}
 
       {% for album in all_albums %}
-<img src="{{ album.album_logo.url }}  " style="height: 59px; width: 55px;"/>
+<img src="{{ album.upload_paper.url }}  " style="height: 59px; width: 55px;"/>
 {% endfor %}
 <div>
-  <a href="{% url 'bank:index' %}">
-     <img src="download.jpg" class="img-responsive" style="height: 100px" />
+
+  <a href="{% url 'bank:ece' %}">
+      ece 4th sem
+     <img src="https://cdn-shop.adafruit.com/970x728/1386-04.jpg" class="img-responsive" style="height: 100px" />
   </a>
 </div>
 
+<br>
+<br>
 
-      <a href="{% url 'bank:index' %}">
-                    <img src="download.jpg" class="img-responsive" style="height: 100px" >
-                </a>
-
-
+<a href="{% url 'bank:ece2' %}">
+     ece 3rd sem
+     <img src="http://www.4dsp.com/Pictures/jpeg_compression_result.jpg" class="img-responsive" style="height: 100px" />
+</a>
 
 {% endblock %}

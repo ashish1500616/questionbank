@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from .forms import UserForm
-from .models import Album,Song
+from .models import Album,Song, Test
 
 
 class IndexView(generic.ListView):
@@ -15,7 +15,51 @@ class IndexView(generic.ListView):
     context_object_name = 'all_albums'
 
     def get_queryset(self):
-        return Album.objects.filter(artist='cse')
+        return Album.objects.filter(concatenate='cse_third')
+
+
+
+
+class Index2View(generic.ListView):
+    template_name = 'bank/index.html'
+    context_object_name = 'all_albums'
+
+    def get_queryset(self):
+        return Album.objects.filter(concatenate='cse_fourth')
+
+
+class EceView(generic.ListView):
+    template_name = 'bank/index.html'
+    context_object_name = 'all_albums'
+
+    def get_queryset(self):
+        return Album.objects.filter(concatenate='ece_third')
+
+
+class Ece2View(generic.ListView):
+    template_name = 'bank/index.html'
+    context_object_name = 'all_albums'
+
+    def get_queryset(self):
+        return Album.objects.filter(concatenate='ece_fourth')
+
+
+
+class MechView(generic.ListView):
+    template_name = 'bank/index.html'
+    context_object_name = 'all_albums'
+
+    def get_queryset(self):
+        return Album.objects.filter(concatenate='mech_third')
+
+
+class Mech2View(generic.ListView):
+    template_name = 'bank/index.html'
+    context_object_name = 'all_albums'
+
+    def get_queryset(self):
+        return Album.objects.filter(concatenate='mech_fourth')
+
 
 
 
@@ -33,9 +77,20 @@ def current_datetime(request):
     html = "<html><body>It is now %s.</body></html>" % now
     return HttpResponse(html)
 
+
 class Home2View(generic.ListView):
     model = Album
     template_name = 'bank/home2.html'
+
+
+class Home3View(generic.ListView):
+    model = Album
+    template_name = 'bank/home3.html'
+
+
+class Home1View(generic.ListView):
+        model = Album
+        template_name = 'bank/home1.html'
 
 
 class DetailView(generic.DetailView):
@@ -43,15 +98,14 @@ class DetailView(generic.DetailView):
     template_name = 'bank/detail.html'
 
 
-
-
 class AlbumCreate(CreateView):
     model = Album
-    fields = ['artist', 'album_title', 'genre', 'album_logo', 'a',]
+    fields = ['subject', 'semester', 'branch', 'concatenate', 'upload_paper', ]
+
 
 class SongCreate(CreateView):
     model = Song
-    fields = ['album', 'file_type', 'song_title', 'song_logo',]
+    fields = ['subject', 'semester', 'year', 'upload_solutions',]
 
 
 class AlbumDelete(DeleteView):

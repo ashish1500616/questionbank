@@ -8,13 +8,29 @@ urlpatterns = [
 
     url(r'^home2/$', views.Home2View.as_view(), name='home2'),
 
+    url(r'^home1/$', views.Home1View.as_view(), name='home1'),
+
+    url(r'^home3/$', views.Home3View.as_view(), name='home3'),
+
 
     url(r'^$', views.IndexView.as_view(), name='index'),
+
+    url(r'^2/$', views.Index2View.as_view(), name='index2'),
+
+    url(r'^3/$', views.EceView.as_view(), name='ece'),
+
+    url(r'^4/$', views.Ece2View.as_view(), name='ece2'),
+
+    url(r'^5/$', views.MechView.as_view(), name='mech'),
+
+    url(r'^6/$', views.Mech2View.as_view(), name='mech2'),
 
 
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
+
+
 
 
 
