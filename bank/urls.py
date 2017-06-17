@@ -4,7 +4,10 @@ from . import views
 app_name = 'bank'
 
 urlpatterns = [
-    url(r'^home/$', views.HomeView.as_view(), name='home'),
+
+    url(r'^$', views.Frontpage.as_view(), name='front'),
+
+    url(r'^1/$', views.HomeView.as_view(), name='home'),
 
     url(r'^home2/$', views.Home2View.as_view(), name='home2'),
 
@@ -12,8 +15,7 @@ urlpatterns = [
 
     url(r'^home3/$', views.Home3View.as_view(), name='home3'),
 
-
-    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^0/$', views.IndexView.as_view(), name='index'),
 
     url(r'^2/$', views.Index2View.as_view(), name='index2'),
 

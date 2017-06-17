@@ -1,33 +1,27 @@
 {% extends 'bank/base.html' %}
 
 {% block body %}
-
-
-<ul class="container">
+    <div style="min-height: 20px"></div>
+<ul>
+  <div class="row">
     {% for album in all_albums %}
-
-
-
-                <a href="{% url 'bank:detail' album.id %}">
-                    <img src="{{ album.upload_paper.url}}" style="height: 100px; width: 100px;" class="img-responsive">
-                </a>
-
-                <div class="caption">
-                    <h2>{{ album.branch }}</h2>
-                    <p>{{ album.subject }}</p>
-                    <p>{{ album.semester }}</p>
-                </div>
-
-    <li><a href="{% url 'bank:detail' album.id %}">{{ album.subject}}-  go to solutions</a></li>
-    <br>
+	    <div class="col-sm-4 col-md-4 col-lg-2">
+		    <div class="qbox">
+                    <img src="{{ album.upload_paper.url}}" class="img-responsive grow">
+                 <!--deatils-->
+                <br>
+                    <p style="text-align: center;">{{ album.subject }}</p>
+                <a href="{% url 'bank:detail' album.id %}"><button class="button" style="width: 100%"><span>View Detais</span></button></a>
+                 <!---details--->
+                  <br>
+			</div>
+		</div>
     {% endfor %}
 </ul>
-     {% for album in all_albums %}
+  <!-- {% for album in all_albums %}
                             <tr>
                                 <td>{{ album.branch }}</td>
                                 <td>
-
-
                                     <form action="{% url 'bank:album-delete' album.id %}" method="post" style="display: inline;">
                                         {% csrf_token %}
                                         <input type="hidden" name="album_id" value="{{ album.id }}" />
@@ -38,9 +32,7 @@
                                 </td>
                             </tr>
          <br></br>
-
-
-                        {% endfor %}
+    {% endfor %}  -->
 {% endblock %}
 
 

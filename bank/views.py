@@ -9,6 +9,12 @@ from django.views.generic import View
 from .forms import UserForm
 from .models import Album,Song, Test
 
+class Frontpage(generic.ListView):
+    template_name = 'bank/front.html'
+
+    def get_queryset(self):
+        return Album.objects.all()
+
 
 class IndexView(generic.ListView):
     template_name = 'bank/index.html'
