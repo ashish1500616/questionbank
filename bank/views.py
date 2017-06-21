@@ -24,8 +24,6 @@ class IndexView(generic.ListView):
         return Album.objects.filter(concatenate='cse_third')
 
 
-
-
 class Index2View(generic.ListView):
     template_name = 'bank/index.html'
     context_object_name = 'all_albums'
