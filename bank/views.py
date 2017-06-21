@@ -7,7 +7,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from .forms import UserForm
-from .models import Album,Song, Test
+from .models import Album, Song, Test
+
 
 class Frontpage(generic.ListView):
     template_name = 'bank/front.html'
@@ -48,7 +49,6 @@ class Ece2View(generic.ListView):
         return Album.objects.filter(concatenate='ece_fourth')
 
 
-
 class MechView(generic.ListView):
     template_name = 'bank/index.html'
     context_object_name = 'all_albums'
@@ -63,9 +63,6 @@ class Mech2View(generic.ListView):
 
     def get_queryset(self):
         return Album.objects.filter(concatenate='mech_fourth')
-
-
-
 
 
 class HomeView(generic.ListView):
@@ -93,8 +90,8 @@ class Home3View(generic.ListView):
 
 
 class Home1View(generic.ListView):
-        model = Album
-        template_name = 'bank/home1.html'
+    model = Album
+    template_name = 'bank/home1.html'
 
 
 class DetailView(generic.DetailView):
@@ -109,7 +106,7 @@ class AlbumCreate(CreateView):
 
 class SongCreate(CreateView):
     model = Song
-    fields = ['subject', 'semester', 'year', 'upload_solutions',]
+    fields = ['subject', 'semester', 'year', 'upload_solutions', ]
 
 
 class AlbumDelete(DeleteView):
@@ -126,13 +123,11 @@ class UserFormView(View):
     form_class = UserForm
     template_name = 'bank/album_form.html'
 
-
-
     def get(self, request):
         form = self.form_class(None)
         return render(request, self.template_name, {'form': form})
 
-    def Post(self,request):
+    def Post(self, request):
 
         form = self.form_class(request.post)
 
@@ -149,13 +144,13 @@ class UserFormView(View):
 
             if user is not None:
 
-
                 if user.is_active:
                     login(request, user)
                     return redirect('bank:index')
 
         return render(request, self.template_name, {'form': form})
 
-
-
-
+def selectCollege(request):
+    answer = request.GET['dropdown'] 
+    if answer == "1":
+        return redirect('/some/url/')

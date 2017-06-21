@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'bank/base.html' %}
 {% block title %}HOME{% endblock %}
 {% block body %}
@@ -16,3 +17,42 @@
      </form>
  </div>
 {% endblock %}
+=======
+{% extends 'bank/base.html' %} {% block title %}HOME{% endblock %} {% block body %}
+<div>
+    <h3>Welcome</h3>
+    <form>
+        <div class="col-sm-12 col-md-12 space">
+            <div class="form-group">
+                <select id="selec" class="form-control" onchange="location = this.options[this.selectedIndex].value;" placeholder="Category" required>
+                    <option selected="selected" disabled>Colleges List:</option>
+                    <option value="https://www.google.com">BIT PATNA</option>
+                    <option value="https://www.google.com">IIT PATNA</option>
+                    <option value="https://www.google.com">NIT PATNA</option>
+                </select>
+                <center>
+                    <button id="sub" class="btn btn-primary">Submit</button>
+                </center>
+            </div>
+        </div>
+    </form>
+</div>
+<!--<script type="text/javascript">
+$('#sub').click(function() {
+    console.log("Submit clicked");
+    check();
+});
+
+function check() {
+    v = $('#selec').val();
+    console.log(v);
+    if (v === 1)
+        window.location = "http://www.location.com/ns.htm";
+    else if (v === 2)
+        window.location = "http://www.location.com/ns.htm";
+    else
+        window.location = "http://www.location.com/ns.htm";
+}
+</script>-->
+{% endblock %}
+>>>>>>> 1c4dda6a41ade2a74b636f013b99cc3c4639e038
