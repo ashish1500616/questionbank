@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
-
 class Album(models.Model):
     subject = models.CharField(max_length=250,default=False)
     semester = models.CharField(max_length=250)
