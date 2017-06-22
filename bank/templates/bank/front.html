@@ -2,34 +2,19 @@
 {% block title %}HOME{% endblock %}
 
 {% block body %}
-
     <div>
-        <h3>Welcome</h3>
-        <form>
-            <div class="col-sm-12 col-md-12 space">
-                        <div class="form-group">
-                                <select name="protype" class="form-control" placeholder="Category" required>
-                                    <option value="-1">Product Category</option>
-                                    <option value="medicine">medicine</option>
-                                    <option value="food">Food</option>
-                                    <option value="Book">Book</option>
-                                    <option value="Stationary">Stationary</option>
-                                    <option value="Birthday Product">Birthday Product</option>
-                                    <option value="Cosmetic Product">Cosmetic Product</option>
-                                    <option value="Sports Product">Sports Product</option>
-                                    <option value="Electronic Product">Electronic Product</option>
-                                    <option value="Repairing Product">Repairing Product</option>
-                                    <option value="Art AND Crafts">Art AND Crafts</option>
-                                    <option value="Cloths">Cloths</option>
-                                    <option value="Gift item">Gift item</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                      </div>
-
-        </form>
-
-
-    </div>
-
+     <h3>Welcome</h3>
+     <form>
+         <div class="col-sm-12 col-md-12 space">
+             <div class="form-group">
+                 <select id="selec" class="form-control" onchange="location = this.options[this.selectedIndex].value;" placeholder="Category" required>
+                     <option selected="selected" disabled>Colleges List:</option>
+                     <option value="https://www.google.com">BIT PATNA</option>
+                     <option value="https://www.google.com">IIT PATNA</option>
+                     <option value="https://www.google.com">NIT PATNA</option>
+                 </select>
+             </div>
+         </div>
+     </form>
+ </div>
 {% endblock %}

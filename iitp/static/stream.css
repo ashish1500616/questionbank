@@ -1,0 +1,7 @@
+.backgroun {
+        background-image: url("http://campusonpark.co.za/wp-content/uploads/2014/10/shutterstock_84518011-1.jpg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        min-height: 400px;
+    }
