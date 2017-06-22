@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from . import views
 
-app_name = 'bank'
+app_name = 'iitp'
 
 urlpatterns = [
 

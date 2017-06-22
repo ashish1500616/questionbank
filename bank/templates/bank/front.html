@@ -1,68 +1,21 @@
-<<<<<<< HEAD
-{% extends 'bank/base.html' %}
-{% block title %}HOME{% endblock %}
-{% block body %}
-    <div>
-     <h3>Welcome</h3>
-     <form>
-         <div class="col-sm-12 col-md-12 space">
-             <div class="form-group">
-<<<<<<< HEAD
-                 <select id="selec" class="form-control" onchange="location = this.options[this.selectedIndex].value;" placeholder="Category" required>
-                     <option selected="selected" disabled>Colleges List:</option>
-                     <option value="https://www.google.com">BIT PATNA</option>
-=======
-                 <select id="selec" class="form-control" onchange="location = this.options[this.selectedIndex].value;" required>
-                     <option value="https://www.facebook.com">BIT PATNA</option>
->>>>>>> 29bd86d55e32609cd6df07e1498b475929d32236
-                     <option value="https://www.google.com">IIT PATNA</option>
-                     <option value="https://www.google.com">NIT PATNA</option>
-                 </select>
-             </div>
-         </div>
-     </form>
- </div>
-<<<<<<< HEAD
-{% endblock %}
-=======
-{% endblock %}
-=======
-{% extends 'bank/base.html' %} {% block title %}HOME{% endblock %} {% block body %}
-<div>
-    <h3>Welcome</h3>
-    <form>
-        <div class="col-sm-12 col-md-12 space">
-            <div class="form-group">
-                <select id="selec" class="form-control" onchange="location = this.options[this.selectedIndex].value;" placeholder="Category" required>
-                    <option selected="selected" disabled>Colleges List:</option>
-                    <option value="https://www.google.com">BIT PATNA</option>
-                    <option value="https://www.google.com">IIT PATNA</option>
-                    <option value="https://www.google.com">NIT PATNA</option>
-                </select>
-                <center>
-                    <button id="sub" class="btn btn-primary">Submit</button>
-                </center>
+{% extends 'bank/base.html' %} {% block body %}
+<center>
+    <h3>Select an Institution.</h3></center>
+<hr>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form>
+            <div class="col-sm-12 col-md-12 space">
+                <div class="form-group">
+                    <select id="selec" class="form-control" onchange="location = this.options[this.selectedIndex].value;" required>
+                        <option selected="selected" disabled>Colleges List:</option>
+                        <option value="{% url 'iitp:stream' %}">BIT PATNA</option>
+                        <option value="{% url 'iitp:stream' %}">IIT PATNA</option>
+                        <option value="https://www.google.com">NIT PATNA</option>
+                    </select>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
-<!--<script type="text/javascript">
-$('#sub').click(function() {
-    console.log("Submit clicked");
-    check();
-});
-
-function check() {
-    v = $('#selec').val();
-    console.log(v);
-    if (v === 1)
-        window.location = "http://www.location.com/ns.htm";
-    else if (v === 2)
-        window.location = "http://www.location.com/ns.htm";
-    else
-        window.location = "http://www.location.com/ns.htm";
-}
-</script>-->
 {% endblock %}
->>>>>>> 1c4dda6a41ade2a74b636f013b99cc3c4639e038
->>>>>>> 29bd86d55e32609cd6df07e1498b475929d32236

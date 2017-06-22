@@ -1,124 +1,130 @@
-{% extends 'bank/base.html' %}
-{% load staticfiles %}
-{% block title %}streams{% endblock %}
-
-{% block body %}
-    {% block stream %}<link rel="stylesheet" href="{% static 'stream.css' %}">{% endblock %}
-    {% block branch_box %}<link rel="stylesheet" href="{% static 'branch_box.css' %}">{% endblock %}
-    <div class="backgroun">
+{% extends 'bank/base.html' %} {% load staticfiles %} {% block title %}streams{% endblock %} {% block body %} {% block stream %}
+<link rel="stylesheet" href="{% static 'stream.css' %}">{% endblock %} {% block branch_box %}
+<link rel="stylesheet" href="{% static 'branch_box.css' %}">{% endblock %}
+<hr>
+<div class="backgroun">
 </div>
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-3">
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
-                            <div class="brabox">
-                               <img src="{% static 'icon/cs.jpg' %}">
-                            </div>
+<hr>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="brabox">
+                            <img src="{% static 'icon/cs.jpg' %}">
                         </div>
-                        <div class="col-md-1"></div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
-                            <div class="brabox">
-<<<<<<< HEAD
-                               <img src="{% static 'icon/civil.jpg' %}">
-                            </div>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
-                            <div class="brabox">
-                               <img src="{% static 'icon/ece.jpg' %}">
-                            </div>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
-                            <div class="brabox">
-                               <img src="{% static 'icon/eee.jpg' %}">
-                            </div>
-                        </div>
-                        <div class="col-md-1"></div>
                     </div>
                 </div>
             </div>
-                <div style="min-height: 50px"></div>
-            <div class="row">
-                <div class="col-md-3 col-sm-3">
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
-                            <div class="brabox">
-                               <img src="{% static 'icon/it.jpg' %}">
-                            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="brabox">
+                            <img src="{% static 'icon/civil.jpg' %}">
                         </div>
-                        <div class="col-md-1"></div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
-                            <div class="brabox">
-                               <img src="{% static 'icon/production.jpg' %}">
-=======
-                               <img src="{% static 'icon/cs.jpg' %}">
->>>>>>> 29bd86d55e32609cd6df07e1498b475929d32236
-                            </div>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
-                            <div class="brabox">
-<<<<<<< HEAD
-                               <img src="{% static 'icon/eee.jpg' %}">
-=======
-                               <img src="{% static 'icon/cs.jpg' %}">
->>>>>>> 29bd86d55e32609cd6df07e1498b475929d32236
-                            </div>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
-                            <div class="brabox">
-<<<<<<< HEAD
-                               <img src="{% static 'icon/eee.jpg' %}">
-=======
-                               <img src="{% static 'icon/cs.jpg' %}">
->>>>>>> 29bd86d55e32609cd6df07e1498b475929d32236
-                            </div>
-                        </div>
-                        <div class="col-md-1"></div>
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
+            <div class="col-md-3 col-sm-3">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="brabox">
+                            <img src="{% static 'icon/ece.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="brabox">
+                            <img src="{% static 'icon/eee.jpg' %}">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-=======
+        <hr>
+        <div style="min-height: 50px"></div>
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="brabox">
+                            <img src="{% static 'icon/it.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="brabox">
+                            <img src="{% static 'icon/production.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="brabox">
+                            <img src="{% static 'icon/eee.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="brabox">
+                            <img src="{% static 'icon/eee.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div style="min-height: 50px"></div>
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="brabox">
+                            <img src="{% static 'icon/it.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="brabox">
+                            <img src="{% static 'icon/production.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="brabox">
+                            <img src="{% static 'icon/eee.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="brabox">
+                            <img src="{% static 'icon/eee.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
->>>>>>> 29bd86d55e32609cd6df07e1498b475929d32236
+</div>
 {% endblock body %}
