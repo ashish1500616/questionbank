@@ -4,7 +4,7 @@ from . import views
 app_name = 'bank'
 
 urlpatterns = [
-
+    url(r'^branch/', views.show_branch, name='branch'),
     url(r'^$', views.Frontpage.as_view(), name='front'),
 
     url(r'^1/$', views.HomeView.as_view(), name='home'),
@@ -31,8 +31,6 @@ urlpatterns = [
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
-
-
 
 
 

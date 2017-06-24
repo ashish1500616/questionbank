@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from .forms import UserForm
-from .models import Album, Song, Test
+from .models import Album, Song, Test, Semester, Branch, Subject
 
 
 class Frontpage(generic.ListView):
@@ -150,7 +150,15 @@ class UserFormView(View):
 
         return render(request, self.template_name, {'form': form})
 
+
 def selectCollege(request):
-    answer = request.GET['dropdown'] 
+    answer = request.GET['dropdown']
     if answer == "1":
         return redirect('/some/url/')
+
+
+def show_branch(request):
+    branch_views = Branch.objects.all()
+    subject_views = Subject.objects.all()
+    semester_views = Semester.objects.all()
+    return render(request, 'bank/branch.html', {'branch_views': branch_views, 'subject_views': subject_views, 'semester_views': semester_views})

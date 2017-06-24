@@ -1,0 +1,17 @@
+{% extends "bank/base.html" %} {% block body %}
+<div class="container">
+	<center><h1>Select Your Branch</h1></center>
+    <div class="row">
+    <hr>
+        {% for branch in branch_views %}
+        <div class="col-md-4">
+            <div class="jumbotron">
+            	<img src='branch.branch_image' alt="">
+                <div><a href="">{{branch.branch_name}}</a></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}
+
