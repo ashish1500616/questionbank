@@ -48,7 +48,7 @@ class Test(models.Model):
 
 class Branch(models.Model):
     branch_name = models.CharField(max_length=30)
-    branch_image = models.FileField(default=False)
+    branch_image = models.FileField(default=False, blank=True)
 
     def __str__(self):
         return self.branch_name
@@ -63,8 +63,8 @@ class Semester(models.Model):
 
 class Subject(models.Model):
     subject_name = models.CharField(max_length=30)
-    subject_image = models.FileField(default=False)
-    question_image = models.FileField(default=False)
+    subject_image = models.FileField(default=False, blank=True)
+    question_image = models.FileField(default=False, blank=True)
 
     def __str__(self):
         return self.subject_name
