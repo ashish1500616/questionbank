@@ -1,0 +1,19 @@
+{% extends "bank/base.html" %} {% block body %}
+<div class="container">
+    <center>
+        <h1>Select Any Subject</h1></center>
+    <div class="row">
+        <hr> {% for subject in subject_views %}
+        <div class="col-md-4">
+            <div class="jumbotron">
+                    <div>
+                        <a href="">{{subject.subject_name}}</a>
+                    </div>
+                </center>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}
+

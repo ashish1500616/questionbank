@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.conf import settings
 
 
 class Album(models.Model):
@@ -62,6 +63,8 @@ class Semester(models.Model):
 
 
 class Subject(models.Model):
+    semester = models.ForeignKey('Semester', on_delete=models.CASCADE, default=True)
+    branch = models.ForeignKey('Branch', on_delete=models.CASCADE, default=True)
     subject_name = models.CharField(max_length=30)
     subject_image = models.FileField(default=False, blank=True)
     question_image = models.FileField(default=False, blank=True)

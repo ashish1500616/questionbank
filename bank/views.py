@@ -162,3 +162,16 @@ def show_branch(request):
     subject_views = Subject.objects.all()
     semester_views = Semester.objects.all()
     return render(request, 'bank/branch.html', {'branch_views': branch_views, 'subject_views': subject_views, 'semester_views': semester_views})
+
+
+def show_subject(request):
+    param = 1
+    params2 = 1
+    query = 'SELECT * FROM bank_subject WHERE branch_id = 1 AND semester_id = 1'
+    subject_views = Subject.objects.raw(query)
+    return render(request, 'bank/subjects.html', {'subject_views': subject_views})
+
+
+def show_sem(request):
+    semester_views = Semester.objects.all()
+    return render(request, 'bank/semester.html', {'semester_views': semester_views})
