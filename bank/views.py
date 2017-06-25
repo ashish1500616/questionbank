@@ -165,11 +165,13 @@ def show_branch(request):
 
 
 def show_subject(request):
-    param = 1
-    params2 = 1
-    query = 'SELECT * FROM bank_subject WHERE branch_id = 1 AND semester_id = 1'
-    subject_views = Subject.objects.raw(query)
+    bid = 1
+    sid = 2
+    # query = 'SELECT * FROM bank_subject WHERE branch_id = %s AND semester_id = %s', % [param, params2]
+    subject_views = Subject.objects.raw('SELECT * FROM bank_subject WHERE branch_id = %s AND semester_id = %s', [bid, sid])
     return render(request, 'bank/subjects.html', {'subject_views': subject_views})
+
+# 'SELECT * FROM bank_subject WHERE branch_id = %(key)s AND semester_id = %(key)s', [param, params2]
 
 
 def show_sem(request):
