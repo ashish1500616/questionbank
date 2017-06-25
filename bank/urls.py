@@ -5,7 +5,7 @@ app_name = 'bank'
 
 urlpatterns = [
     url(r'^branch/', views.show_branch, name='branch'),
-    url(r'^/subject/[0-20]', views.show_subject, name='subject'),
+    url(r'^subject/[0-20]', views.show_subject, name='subject'),
     url(r'^semester/[0-20]', views.show_sem, name="semester"),
     url(r'^$', views.Frontpage.as_view(), name='front'),
 
