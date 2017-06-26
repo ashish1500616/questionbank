@@ -9,9 +9,13 @@
                 <div class="form-group">
                     <select id="selec" class="form-control" onchange="location = this.options[this.selectedIndex].value;" required>
                         <option selected="selected" disabled>Colleges List:</option>
-                        <option value="{% url 'bank:branch' %}">BIT PATNA</option>
+                        {% for coll in college_view %}
+                       <option >{{coll.id}}.{{coll.college_name}}</option>
+                            
+                        {% endfor %}
+                       <!-- <option value="{% url 'bank:branch' %}">BIT PATNA</option>
                         <option value="{% url 'iitp:stream' %}">IIT PATNA</option>
-                        <option value="https://www.google.com">NIT PATNA</option>
+                        <option value="https://www.google.com">NIT PATNA</option>-->
                     </select>
                 </div>
             </div>

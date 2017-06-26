@@ -7,15 +7,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from .forms import UserForm
-from .models import Album, Song, Test, Semester, Branch, Subject
+from .models import Album, Song, Test, Semester, Branch, Subject ,College
 
 
-class Frontpage(generic.ListView):
-    template_name = 'bank/front.html'
-
-    def get_queryset(self):
-        return Album.objects.all()
-
+def Frontpage(request):
+    college_view=College.objects.all()
+    return render(request,'bank/front.html',{'college_view':college_view})
 
 class IndexView(generic.ListView):
     template_name = 'bank/index.html'

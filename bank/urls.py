@@ -2,12 +2,12 @@ from django.conf.urls import url
 from . import views
 
 app_name = 'bank'
-
+#[-BIT]IT\W\d+\W+
 urlpatterns = [
-    url(r'^branch/', views.show_branch, name='branch'),
-    url(r'^semester/([0-9])/subject/([0-9])', views.show_subject, name='subject'),
-    url(r'^semester/([0-9])', views.show_sem, name="semester"),
-    url(r'^$', views.Frontpage.as_view(), name='front'),
+    url(r'^[0-9]+', views.show_branch, name='branch'),
+    url(r'^semester/([0-9]+)/subject/([0-9])', views.show_subject, name='subject'),
+    url(r'^semester/([0-9]+)', views.show_sem, name="semester"),
+    url(r'^$', views.Frontpage, name='front'),
 
     url(r'^1/$', views.HomeView.as_view(), name='home'),
 
