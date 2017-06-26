@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^college/(?P<cid>\d+)/branch/(?P<bbid>\d+)/$',
         views.show_sem, name="semester"),
 
-    url(r'^college/(?P<cid>\d+)/branch/(?P<bid>\d+)/semester/(?P<semid>\d+)/paper/(?P<subid>\d+)/$',
+    url(r'^paper/(?P<subid>\d+)/$',
         views.show_paper, name='question_paper'),
 
 

@@ -35,6 +35,6 @@ def show_sem(request, cid, bbid):
     return render(request, 'bank/semester.html', {'semester_views': semester_views, 'bbid': bbid, 'cid': cid})
 
 
-def show_paper(request, cid, bid, semid, subid):
+def show_paper(request, subid):
     question_views = Subject.objects.get(id=subid)
     return render(request,'bank/question_paper.html',{'question_views':question_views})
