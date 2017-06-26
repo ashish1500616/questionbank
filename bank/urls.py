@@ -1,13 +1,14 @@
 from django.conf.urls import url
 from . import views
 
-app_name = 'bank'
+app_name ='bank'
 #[-BIT]IT\W\d+\W+
-urlpatterns = [
-    url(r'^[0-9]+', views.show_branch, name='branch'),
-    url(r'^semester/([0-9]+)/subject/([0-9])', views.show_subject, name='subject'),
-    url(r'^semester/([0-9]+)', views.show_sem, name="semester"),
-    url(r'^$', views.Frontpage, name='front'),
+urlpatterns = [\
+    url(r'^$',views.indexPage,name='indexpage'),
+    url(r'^college/(?P<pk>[0-9]+)/$', views.show_branch, name='branch'),
+    url(r'^college/([0-9]+)/semester/([0-9]+)/subject/([0-9])', views.show_subject, name='subject'),
+    url(r'^college/([0-9]+)/semester/([0-9]+)', views.show_sem, name="semester"),
+
 
     url(r'^1/$', views.HomeView.as_view(), name='home'),
 
@@ -32,7 +33,7 @@ urlpatterns = [
 
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
-    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
+   # url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
 
 
 

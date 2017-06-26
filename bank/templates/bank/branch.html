@@ -1,16 +1,16 @@
 {% extends "bank/base.html" %} {% block body %}
 <div class="container">
     <center>
-        <h1>Select Your Branch</h1></center>
+        <h1>Select Your Branch </h1></center>
     <div class="row">
-        <hr> {% for branch in branch_views %}
+        <hr> {% for br in branch_views %}
         <div class="col-md-4">
             <div class="jumbotron">
                 <center>
-                    <img src='/media/{{branch.branch_image}}' alt="" style="width:200px;height:200px">
+                    <img src='/media/{{br.branch_image}}' alt="" style="width:200px;height:200px">
                     <hr>
                     <div>
-                        <a href="/bank/semester/{{branch.id}}">{{branch.id}}.{{branch.branch_name}}</a>
+                        <a href="/bank/college/{{ pk }}/semester/{{br.id}}">{{br.id}}.{{br.branch_name}}</a>
                     </div>
                 </center>
             </div>
