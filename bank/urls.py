@@ -5,9 +5,9 @@ app_name ='bank'
 #[-BIT]IT\W\d+\W+
 urlpatterns = [\
     url(r'^$',views.indexPage,name='indexpage'),
-    url(r'^college/(?P<pk>[0-9]+)/$', views.show_branch, name='branch'),
-    url(r'^college/([0-9]+)/semester/([0-9]+)/subject/([0-9])', views.show_subject, name='subject'),
-    url(r'^college/([0-9]+)/semester/([0-9]+)', views.show_sem, name="semester"),
+    url(r'^college/(?P<pk>\d+)/$', views.show_branch, name='branch'),
+    url(r'^college/(?P<cid>\d+)/branch/(?P<bid>\d+)/semester/(?P<sid>\d+)', views.show_subject, name='subject'),
+    url(r'^college/(?P<cid>\d+)/branch/(?P<bbid>\d+)', views.show_sem, name="semester"),
 
 
     url(r'^1/$', views.HomeView.as_view(), name='home'),
