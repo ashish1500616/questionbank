@@ -7,7 +7,6 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^bank/', include('bank.urls')),
-    url(r'^iitp/', include('iitp.urls')),
     url('^$',views.homePage,name='homepage')
 
 ]
