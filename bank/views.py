@@ -1,13 +1,6 @@
-from django.views import generic
-from django.http import HttpResponse
-import datetime
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect, render_to_response
-from django.contrib.auth import authenticate, login
-from django.views.generic import View
-from .forms import UserForm
-from .models import Semester, Branch, Subject, College
+from .forms import CommentForm
+from .models import Semester, Branch, Subject, College, Comments
 
 
 def indexPage(request):
@@ -24,8 +17,9 @@ def show_subject(request, cid, bid, sid):
     # query = 'SELECT * FROM bank_subject WHERE branch_id = %s AND semester_id
     # = %s', % [param, params2]
     subject_views = Subject.objects.raw(
-        'SELECT * FROM bank_subject WHERE college_id=%s AND branch_id = %s AND semester_id = %s', [cid, bid, sid])
-    return render(request, 'bank/subjects.html', {'subject_views': subject_views,'cid':cid,'bid':bid,'sid':sid})
+        'SELECT * FROM bank_subject WHERE college_id=%s AND branch_id = %s AND semester_id = %s',
+        [cid, bid, sid])
+    return render(request, 'bank/subjects.html', {'subject_views': subject_views, 'cid': cid, 'bid': bid, 'sid': sid})
 
 # 'SELECT * FROM bank_subject WHERE branch_id = %(key)s AND semester_id = %(key)s', [param, params2]
 
@@ -36,5 +30,29 @@ def show_sem(request, cid, bbid):
 
 
 def show_paper(request, subid):
+    comments = Comments.objects.raw('SELECT * FROM bank_Comments WHERE subject_id = %s', [subid])
     question_views = Subject.objects.get(id=subid)
-    return render(request,'bank/question_paper.html',{'question_views':question_views})
+    jayeshform = CommentForm
+    return render(request,'bank/question_paper.html',{'question_views': question_views, 'comments': comments, 'subid': subid,
+                                                      'jayeshform': jayeshform})
+
+
+def comments(request, subid):
+    comments = Comments.objects.raw('SELECT * FROM bank_Comments WHERE subject_id = %s', [subid])
+    question_views = Subject.objects.get(id=subid)
+    jayeshform = CommentForm
+    if request.POST:
+        jayeshform = CommentForm(request.POST)
+        if jayeshform.is_valid():
+            jayeshform.save()
+
+            return render(request, 'bank/question_paper.html',
+                          {'question_views': question_views, 'comments': comments, 'subid': subid,
+                           'jayeshform': jayeshform})
+
+    else:
+        jayeshform = CommentForm()
+
+        return render(request, 'bank/question_paper.html',
+                      {'question_views': question_views, 'comments': comments, 'subid': subid,
+                       'jayeshform': jayeshform, })

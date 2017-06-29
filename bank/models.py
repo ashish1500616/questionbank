@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.conf import settings
 
@@ -24,12 +25,25 @@ class Subject(models.Model):
     branch = models.ForeignKey('Branch', on_delete=models.CASCADE, default=True)
     subject_name = models.CharField(max_length=30)
     subject_image = models.FileField(default=False, blank=True)
-    question_image = models.FileField(default=False, blank=True)
+    question_image1 = models.FileField(default=False, blank=True)
+    question_image2 = models.FileField(default=False, blank=True)
 
     def __str__(self):
         return self.subject_name
+
+
 class College(models.Model):
     college_name=models.CharField(max_length=30)
 
     def __str__(self):
         return self.college_name
+
+
+class Comments(models.Model):
+    subject = models.ForeignKey('Subject', on_delete=models.CASCADE, default=True)
+    name = models.CharField(max_length=20)
+    body = models.TextField(max_length=1000)
+    publish = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.name

@@ -17,7 +17,8 @@ urlpatterns = [
     url(r'^paper/(?P<subid>\d+)/$',
         views.show_paper, name='question_paper'),
 
-
+    url(r'^paper/(?P<subid>\d+)/comments$',
+        views.comments, name='comments'),
 
 
 ]

@@ -1,0 +1,10 @@
+{% block form %}
+    <div class="container">
+        <form action="{% url 'bank:comments' subid %}" method="post" id="more">{% csrf_token %}
+            <ul>
+                {{form.as_ul}}
+            </ul>
+            <input type="submit" name="submit" value="commit">
+        </form>
+    </div>
+{% endblock %}
