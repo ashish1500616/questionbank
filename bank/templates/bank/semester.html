@@ -8,7 +8,7 @@
 
         <br> {% endif %}
         <div class="item tm{{forloop.counter}}" style=" margin-top: 2em;">
-            <a href="/bank/college/{{ cid }}/branch/{{bbid}}/semester/{{sem.id}}">
+            <a href="{% url 'bank:subject' cid=cid bid=bbid sid=sem.id %}">
                 <p>{{sem.id}}.{{sem.semester_name}}</p>
             </a>
         </div>
@@ -26,4 +26,5 @@
         </center>
     </div>
 </div>
+/bank/college/{{ cid }}/branch/{{bbid}}/semester/{{sem.id}}
 -->

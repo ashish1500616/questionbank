@@ -1,5 +1,4 @@
-{% extends 'bank/base.html'%}
-{% block body %}
+{% extends 'bank/base.html'%} {% block body %}
 <center>
     <h3>Select an Institution.</h3></center>
 <hr>
@@ -11,7 +10,7 @@
                     <select id="selec" class="form-control" onchange="location = this.options[this.selectedIndex].value;" required>
                         <option selected="selected" disabled>Colleges List:</option>
                         {% for coll in college_views %}
-                       <option value="/bank/college/{{ coll.id }}" >{{coll.id}}.{{coll.college_name}}</option>
+                       <option value="{% url 'bank:branch' coll.id %}" >{{coll.id}}.{{coll.college_name}}</option>
 
                         {% endfor %}
                      </select>
@@ -21,3 +20,5 @@
     </div>
 </div>
 {% endblock %}
+
+<!--/bank/college/{{ coll.id }}-->

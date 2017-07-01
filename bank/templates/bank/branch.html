@@ -10,8 +10,8 @@
             <br> {% endif %}
 
             <div class="item tm{{forloop.counter}}" style=" margin-top: 2em;">
-                <a href="/bank/college/{{ pk }}/branch/{{br.id}}"> <img src='/media/{{br.branch_image}}' alt="" style="width:200px;height:200px"></a>
-                <p style="margin:0p"> <a href="/bank/college/{{ pk }}/branch/{{br.id}}">{{br.id}}.{{br.branch_name}}</a></p>
+                <a href="}"> <img src='/media/{{br.branch_image}}' alt="" style="width:200px;height:200px"></a>
+                <p style="margin:0p"> <a href="{% url 'bank:semester' cid=pk bbid=br.id %}">{{br.id}}.{{br.branch_name}}</a></p>
             </div>
             {% endfor %}
         </div>
@@ -29,4 +29,6 @@
                     </div>
                 </center>
             </div>
-        </div>-->
+        </div>
+        /bank/college/{{ pk }}/branch/{{br.id}}
+        -->
