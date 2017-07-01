@@ -1,19 +1,29 @@
-{% extends "bank/base.html" %} {% block body %}
+{% extends "bank/base.html" %} {% load staticfiles %} {% block styles %}
+<link rel="stylesheet" href="{% static 'bank/pictheme.css' %}"> {% endblock %} {% block body %}
 <div class="container">
     <center>
         <h1>Select Any Semester</h1></center>
     <div class="row">
-        <hr> {% for sem in semester_views %}
-        <div class="col-md-4">
-            <div class="jumbotron">
-                    <div>
-                        <a href="/bank/college/{{ cid }}/branch/{{bbid}}/semester/{{sem.id}}">{{sem.id}}.{{sem.semester_name}}</a>
-                    </div>
-                </center>
-            </div>
+        <hr> {% for sem in semester_views %} {% if forloop.counter|divisibleby:4%}
+
+        <br> {% endif %}
+        <div class="item tm{{forloop.counter}}" style=" margin-top: 2em;">
+            <a href="/bank/college/{{ cid }}/branch/{{bbid}}/semester/{{sem.id}}">
+                <p>{{sem.id}}.{{sem.semester_name}}</p>
+            </a>
         </div>
+
         {% endfor %}
     </div>
 </div>
 {% endblock body %}
 
+<!--<div class="col-md-4">
+    <div class="jumbotron">
+        <div>
+            <a href="/bank/college/{{ cid }}/branch/{{bbid}}/semester/{{sem.id}}">{{sem.id}}.{{sem.semester_name}}</a>
+        </div>
+        </center>
+    </div>
+</div>
+-->
