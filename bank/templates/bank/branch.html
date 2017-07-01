@@ -3,8 +3,22 @@
     <center>
         <h1>Select Your Branch </h1></center>
     <div class="row">
-        <hr> {% for br in branch_views %}
-        <div class="col-md-4">
+        <br><br>
+        <div>
+            {% for br in branch_views %} {% if forloop.counter|divisibleby:4%}
+            <br> {% endif %}
+
+            <div class="item tm{{forloop.counter}}" style=" margin-top: 2em;">
+                <a href="/bank/college/{{ pk }}/branch/{{br.id}}"> <img src='/media/{{br.branch_image}}' alt="" style="width:200px;height:200px"></a>
+                <p style="margin:0p"> <a href="/bank/college/{{ pk }}/branch/{{br.id}}">{{br.id}}.{{br.branch_name}}</a></p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+<!--  <div class="col-md-4">
             <div class="jumbotron">
                 <center>
                     <img src='/media/{{br.branch_image}}' alt="" style="width:200px;height:200px">
@@ -14,9 +28,4 @@
                     </div>
                 </center>
             </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
-{% endblock body %}
-
+        </div>-->
