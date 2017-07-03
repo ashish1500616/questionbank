@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from .forms import UserForm
-from .models import Semester, Branch, Subject, College
+from .models import Semester, Branch, Subject, College, Question
 
 
 def indexPage(request):
@@ -25,7 +25,7 @@ def show_subject(request, cid, bid, sid):
     # = %s', % [param, params2]
     subject_views = Subject.objects.raw(
         'SELECT * FROM bank_subject WHERE college_id=%s AND branch_id = %s AND semester_id = %s', [cid, bid, sid])
-    return render(request, 'bank/subjects.html', {'subject_views': subject_views,'cid':cid,'bid':bid,'sid':sid})
+    return render(request, 'bank/subjects.html', {'subject_views': subject_views, 'cid': cid, 'bid': bid, 'sid': sid})
 
 # 'SELECT * FROM bank_subject WHERE branch_id = %(key)s AND semester_id = %(key)s', [param, params2]
 
@@ -36,5 +36,5 @@ def show_sem(request, cid, bbid):
 
 
 def show_paper(request, subid):
-    question_views = Subject.objects.get(id=subid)
-    return render(request,'bank/question_paper.html',{'question_views':question_views})
+    question_views = Question.objects.get(subject_id=subid)
+    return render(request, 'bank/question_paper.html', {'question_views': question_views})

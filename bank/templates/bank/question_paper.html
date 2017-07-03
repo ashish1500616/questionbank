@@ -1,16 +1,17 @@
 {% extends 'bank/base.html' %} {% block body %}
 <center>
-    <h1>{{question_views.question_image}}.</h1></center>
+    <h1>{{question_views.question2}}.</h1></center>
 <hr>
 <div class="container">
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-		<div class="jumbotron">
-	
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="jumbotron">
 
-			<img src="/media/{{question_views.question_image}}" alt="" class="img-responsive" >
-	    </div>
-		</div>
-	</div>
+                {% if question_views.question1 != "False" %}
+                <img src="/media/{{question_views.question1}}" alt="" class="img-responsive"> {% endif %} {% if question_views.question2 != "False" %}
+                <img src="/media/{{question_views.question2}}" alt="" class="img-responsive">{% endif %}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
