@@ -1,0 +1,13 @@
+{% extends "bank/base.html" %} {% block body %}
+<div class="container">
+    <div class="col-md-6 col-md-offset-3">
+        <h1>New Comment</h1>
+        <form method="POST">
+            {% csrf_token %} {{form.as_p}}
+            <button class="btn btn-default" type="submit">Post Comment</button>
+        </form>
+    </div>
+</div>
+
+{%endblock %}
+<!-- class="comment-form"-->

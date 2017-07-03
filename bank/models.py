@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.conf import settings
+from django.utils import timezone
 
 
 class Branch(models.Model):
@@ -42,6 +43,12 @@ class Question(models.Model):
     question_3_a = models.ImageField(blank=True)
     question_3_b = models.ImageField(blank=True)
 
+    def approve_comment(self):
+        return self.comments.filter(approve_comment=True)
+
+    # def get_absolute_url(self):
+    #     return reverse("question_paper", kwargs={'subid': self.subject_id})
+
     def __str__(self):
         return str(self.subject)
 
@@ -51,3 +58,24 @@ class College(models.Model):
 
     def __str__(self):
         return self.college_name
+
+
+class Comment(models.Model):
+    subject = models.ForeignKey('Subject', related_name='comments')
+    author = models.CharField(max_length=200)
+    text = models.TextField()
+    create_date = models.DateTimeField(default=timezone.now)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def get_absolute_url(self):
+        return reverse('show_paper', kwargs={'subid': self.subject_id})
+
+        # reverse offers us functionality not to hard code the url and to redirect the page as per the requirement,
+        # reverse(viewName)
+
+    def __str__(self):
+        return self.text

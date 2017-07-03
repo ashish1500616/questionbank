@@ -17,7 +17,11 @@ urlpatterns = [
     url(r'^paper/(?P<subid>\d+)/$',
         views.show_paper, name='question_paper'),
 
-
+    url(r'^paper/(?P<subid>\d+)/comment/$',
+        views.add_comment_to_post, name='add_comment_to_post'),
+    url(r'^paper/(?P<subid>\d+)/approve/$',
+        views.comment_approve, name='comment_approve'),
+    url(r'^paper/(?P<subid>\d+)/remove/$', views.comment_remove, name='comment_remove'),
 
 
 ]

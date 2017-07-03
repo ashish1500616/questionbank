@@ -15,7 +15,23 @@
                 <img src="/media/{{question_views.question_3_a}}" alt="" class="img-responsive"> {% endif %} {% if question_views.question_3_b != "" %}3.b
                 <img src="/media/{{question_views.question_3_b}}" alt="" class="img-responsive">{% endif %}
             </div>
+            <center><a class="btn btn-primary btn-comment" href="{% url 'bank:add_comment_to_post' subid=question_views.subject_id %}">Add comment</a></center>
         </div>
+    </div>
+    <div class="container">
+
+
+        {% for comment in question_views.comments.all %}
+        <br> {% if comment.approved_comment %} {{ comment.created_date }} {% if not comment.approved_comment %}
+        <a class="btn btn-default" href="{% url 'comment_remove' subid=question_views.subject_id %}"><span class="glyphicon glyphicon-remove"></span></a>
+        <a class="btn btn-default" href="{% url 'comment_approve' subid=question_views.subject_id %}"><span class="glyphicon glyphicon-ok"></span></a> {% endif %}
+
+        <p>{{ comment.text|safe|linebreaks }}</p>
+        <p>Posted by: <strong>{{ comment.author }}</strong></p>
+
+        {% endif %} {% empty %}
+        <p>No comments posted.</p>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
