@@ -35,8 +35,12 @@ class Question(models.Model):
     semester = models.ForeignKey('Semester', on_delete=models.CASCADE, default=True)
     branch = models.ForeignKey('Branch', on_delete=models.CASCADE, default=True)
     subject = models.ForeignKey('Subject', on_delete=models.CASCADE, default=True)
-    question1 = models.FileField(default=False, blank=True, editable=True)
-    question2 = models.FileField(default=False, blank=True, editable=True)
+    question_1_a = models.ImageField(blank=True)
+    question_1_b = models.ImageField(blank=True)
+    question_two_a = models.ImageField(blank=True)
+    question_two_b = models.ImageField(blank=True)
+    question_3_a = models.ImageField(blank=True)
+    question_3_b = models.ImageField(blank=True)
 
     def __str__(self):
         return str(self.subject)
