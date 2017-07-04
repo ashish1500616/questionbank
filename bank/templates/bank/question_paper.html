@@ -15,9 +15,15 @@
                 <img src="/media/{{question_views.question_3_a}}" alt="" class="img-responsive"> {% endif %} {% if question_views.question_3_b != "" %}3.b
                 <img src="/media/{{question_views.question_3_b}}" alt="" class="img-responsive">{% endif %}
             </div>
-            <center><a class="btn btn-primary btn-comment" href="{% url 'bank:add_comment_to_post' subid=question_views.subject_id %}">Add comment</a></center>
+            <!-- <center><a class="btn btn-primary btn-comment" href="{% url 'bank:add_comment_to_post' subid=question_views.subject_id %}">Add comment</a></center>-->
         </div>
     </div>
+    <center>
+        <form method="POST">
+            {% csrf_token %} {{form.as_p}}
+            <button class="btn btn-default" type="submit">Post Comment</button>
+        </form>
+    </center>c
     <div class="container">
 
 

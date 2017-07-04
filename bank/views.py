@@ -39,7 +39,16 @@ def show_sem(request, cid, bbid):
 def show_paper(request, subid):
     question_views = Question.objects.get(subject_id=subid)
     comments_views = Comment.objects.filter(subject_id=subid)
-    return render(request, 'bank/question_paper.html', {'question_views': question_views, 'comments_views': comments_views})
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.subject_id = question_views.subject_id
+            comment.save()
+            return redirect('bank:question_paper', subid=comment.subject_id)
+    else:
+        form = CommentForm()
+    return render(request, 'bank/question_paper.html', {'question_views': question_views, 'form': form, 'comments_views': comments_views})
 
 # Comments related methods
 
