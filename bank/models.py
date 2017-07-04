@@ -61,7 +61,7 @@ class College(models.Model):
 
 
 class Comment(models.Model):
-    subject = models.ForeignKey('Subject', related_name='comments')
+    subject = models.ForeignKey('Subject', related_name='comments', default="")
     author = models.CharField(max_length=200)
     text = models.TextField()
     create_date = models.DateTimeField(default=timezone.now)
@@ -71,11 +71,11 @@ class Comment(models.Model):
         self.approved_comment = True
         self.save()
 
-    def get_absolute_url(self):
-        return reverse('show_paper', kwargs={'subid': self.subject_id})
+    def __str__(self):
+        return self.text
+
+ # def get_absolute_url(self):
+ #        return reverse('show_paper',kwargs={'subid': self.subject_id})
 
         # reverse offers us functionality not to hard code the url and to redirect the page as per the requirement,
         # reverse(viewName)
-
-    def __str__(self):
-        return self.text

@@ -21,7 +21,7 @@
     <div class="container">
 
 
-        {% for comment in question_views.comments.all %}
+        {% for comment in comments_views %}
         <br> {% if comment.approved_comment %} {{ comment.created_date }} {% if not comment.approved_comment %}
         <a class="btn btn-default" href="{% url 'comment_remove' subid=question_views.subject_id %}"><span class="glyphicon glyphicon-remove"></span></a>
         <a class="btn btn-default" href="{% url 'comment_approve' subid=question_views.subject_id %}"><span class="glyphicon glyphicon-ok"></span></a> {% endif %}

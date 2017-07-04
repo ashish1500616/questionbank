@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, render_to_response, get_object_or
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from .forms import UserForm, CommentForm
-from .models import Semester, Branch, Subject, College, Question
+from .models import Semester, Branch, Subject, College, Question, Comment
 
 
 def indexPage(request):
@@ -38,7 +38,8 @@ def show_sem(request, cid, bbid):
 
 def show_paper(request, subid):
     question_views = Question.objects.get(subject_id=subid)
-    return render(request, 'bank/question_paper.html', {'question_views': question_views})
+    comments_views = Comment.objects.filter(subject_id=subid)
+    return render(request, 'bank/question_paper.html', {'question_views': question_views, 'comments_views': comments_views})
 
 # Comments related methods
 
@@ -51,7 +52,7 @@ def add_comment_to_post(request, subid):
             comment = form.save(commit=False)
             comment.subject_id = question.subject_id
             comment.save()
-            return redirect('show_paper', subid=question.subject_id)
+            return redirect('bank:question_paper', subid=comment.subject_id)
     else:
         form = CommentForm()
     return render(request, 'bank/comment_form.html', {'form': form})
