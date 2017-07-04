@@ -53,31 +53,17 @@ def show_paper(request, subid):
 # Comments related methods
 
 
-def add_comment_to_post(request, subid):
-    question = get_object_or_404(Question, subject_id=subid)
-    if request.method == "POST":
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.subject_id = question.subject_id
-            comment.save()
-            return redirect('bank:question_paper', subid=comment.subject_id)
-    else:
-        form = CommentForm()
-    return render(request, 'bank/comment_form.html', {'form': form})
-
-
 @login_required
 def comment_approve(request, subid):
-    comment = get_object_or_404(Comment, subject_id=subid)
+    comment = Comment.objects.get(id=subid)
     comment.approve()
-    return redirect('question_paper', subid=comment.question.subject_id)
+    return redirect('bank:question_paper', subid=comment.subject_id)
 
 
 @login_required
 def comment_remove(request, subid):
-    comment = get_object_or_404(Comment, subject_id=subid)
+    comment = Comment.objects.get(id=subid)
     # savinng post primary key as comment.delete will delte it from the a
-    comment_id = comment.question.subject_id
+    comment_id = comment.subject_id
     comment.delete()
-    return redirect('question_paper', subid=comment_id)
+    return redirect('bank:question_paper', subid=comment_id)
