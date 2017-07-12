@@ -1,26 +1,16 @@
-{% extends 'bank/base.html' %} {% load staticfiles %} {% block styles %}
-<style>
-    img {
-        -webkit-transform: none !important;
-        /* Safari and Chrome */
-        -moz-transform: none;
-        /* Firefox */
-        -ms-transform: none;
-        /* IE 9 */
-        -o-transform: none;
-        /* Opera */
-        transform: none;
-    }
-</style>
-
-<link rel="stylesheet" href="{% static 'bank/pictheme.css' %}"> {% endblock %} {% block body %}
+{% extends 'bank/base.html' %} {% block body %}
+<<<<<<< HEAD
 <center>
     <h1>{{question_views.subject}}.</h1></center>
+||||||| merged common ancestors
 <center>
     <h1>{{question_views.question_image}}.</h1></center>
-
+=======
+    <h1>{{question_views.question_image}}.</h1>
+>>>>>>> comments
 <hr>
 <div class="container">
+<<<<<<< HEAD
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="jumbotron">
@@ -56,5 +46,45 @@
         <p>No comments posted.</p>
         {% endfor %}
     </div>
+||||||| merged common ancestors
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+		<div class="jumbotron">
+	
+
+			<img src="/media/{{question_views.question_image}}" alt="" class="img-responsive" >
+	    </div>
+		</div>
+	</div>
+=======
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+		<div class="jumbotron">
+			<img src="/media/{{question_views.question_image1}}" alt="" class="img-responsive" >
+            <br>
+            <img src="/media/{{question_views.question_image2}}" alt="" class="img-responsive" >
+	    </div>
+		</div>
+	</div>
+>>>>>>> comments
 </div>
+    <br>
+    <div class="container">
+        <form action="{% url 'bank:comments' subid %}" method="POST">
+            {% csrf_token %}
+            {{ jayeshform }}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <br>
+    <div class="container">
+    {% for com in comments %}
+      <div>
+          <p>{{ com.name }}</p>
+          <p>{{ com.body }}</p>
+          <p>{{ com.publish }}</p>
+      </div>
+    {% endfor %}
+        <p>1sgfc</p>
+    </div>
 {% endblock %}

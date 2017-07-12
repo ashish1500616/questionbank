@@ -1,0 +1,40 @@
+from django.contrib.auth.models import User
+from django import forms
+<<<<<<< HEAD
+from .models import Comment
+
+||||||| merged common ancestors
+=======
+from django.forms import ModelForm
+from bank.models import Comments
+
+>>>>>>> comments
+
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+<<<<<<< HEAD
+        fields = ['username', 'email', 'password']
+
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ('author', 'text')
+||||||| merged common ancestors
+        fields = ['username', 'email', 'password']
+=======
+        fields = ['username', 'email', 'password']
+
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comments
+        fields = ['name', 'body' ]
+
+
+jayeshform = CommentForm()
+>>>>>>> comments

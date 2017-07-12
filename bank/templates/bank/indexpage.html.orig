@@ -1,0 +1,184 @@
+<<<<<<< HEAD
+{% extends 'bank/base.html'%} {% block body %}
+<center>
+    <h3>Select an Institution.</h3></center>
+<hr>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form>
+            <div class="col-sm-12 col-md-12 space">
+                <div class="form-group">
+                    <select id="selec" class="form-control" onchange="location = this.options[this.selectedIndex].value;" required>
+                        <option selected="selected" disabled>Colleges List:</option>
+                        {% for coll in college_views %}
+                       <option value="{% url 'bank:branch' coll.id %}" >{{coll.id}}.{{coll.college_name}}</option>
+
+                        {% endfor %}
+                     </select>
+                </div>
+            </div>
+        </form>
+    </div>
+||||||| merged common ancestors
+{% extends 'bank/base.html'%}
+{% block body %}
+<center>
+    <h3>Select an Institution.</h3></center>
+<hr>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form>
+            <div class="col-sm-12 col-md-12 space">
+                <div class="form-group">
+                    <select id="selec" class="form-control" onchange="location = this.options[this.selectedIndex].value;" required>
+                        <option selected="selected" disabled>Colleges List:</option>
+                        {% for coll in college_views %}
+                       <option value="/bank/college/{{ coll.id }}" >{{coll.id}}.{{coll.college_name}}</option>
+
+                        {% endfor %}
+                     </select>
+                </div>
+            </div>
+        </form>
+    </div>
+=======
+<!DOCTYPE html>
+<html xmlns:style="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Select your college</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+              #map {
+                height: 100%;
+              }
+              /* Optional: Makes the sample page fill the window. */
+              html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+              }
+                body {
+                font-family: "Lato", sans-serif;
+                transition: background-color .5s;
+              }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover, .offcanvas a:focus{
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #map {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+    </style>
+  </head>
+  <body>
+  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+>>>>>>> comments
+</div>
+<<<<<<< HEAD
+{% endblock %}
+
+<!--/bank/college/{{ coll.id }}-->
+||||||| merged common ancestors
+{% endblock %}
+=======
+<div style="position:fixed;z-index: 100;top: 50px;left: 10px;" ><span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776</span></div>
+    <div id="map"></div>
+    <script type="text/javascript">
+         var locations = [
+                ['BITP', 25.5961, 85.0876, '<div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">BIT PATNA</h1><div id="bodyContent"><p><b>BITP</b>is<b></b>Heritage Site.</p><p>Attribution: Uluru,<a href="/bank/college/1"">https://en.wikipedia.org/w/index.php?title=Uluru</a>(last visited June 22, 2009)</p></div></div>'],
+                ['NITP', 25.5358, 84.8511, '<div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">IIT PATNA</h1><div id="bodyContent"><p><b>IITP</b>ghgh<b>Ayers Rock</b>Heritage Site.</p><p>Attribution: Uluru,<a href="/bank/college/2"">https://en.wikipedia.org/w/index.php?title=Uluru</a>(last visited June 22, 2009)</p></div></div>'],
+                ['IITP', 25.6211, 85.1720, '<div id="siteNotice"></div><h1 id="firstHeading" class="firstHeading">NIT PATNA</h1><div id="bodyContent"><p><b>NITP</b>ghgh<b>Ayers Rock</b>Heritage Site.</p><p>Attribution: Uluru,<a href="/bank/college/3"">https://en.wikipedia.org/w/index.php?title=Uluru</a>(last visited June 22, 2009)</p></div></div>']
+            ];
+
+        function initMap() {
+            var infowindow = new google.maps.InfoWindow();
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: new google.maps.LatLng(25.5961, 85.0876)
+            });
+
+                function placeMarker( loc ) {
+                    var latLng = new google.maps.LatLng(loc[1], loc[2]);
+                    var marker = new google.maps.Marker({
+                        position: latLng,
+                        map: map
+                    });
+
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.close(); // Close previously opened infowindow
+                        infowindow.setContent(loc[3]);
+                        infowindow.open(map, marker);
+                    });
+                }
+
+              for(var i=0; i<locations.length; i++)
+              {
+                placeMarker( locations[i] );
+              }
+
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoyyjydtLHOs495h0DzciQPISIuJhnv04&callback=initMap"></script>
+
+    <script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("map").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("map").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+</script>
+
+  </body>
+</html>
+>>>>>>> comments

@@ -31,6 +31,7 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.subject_name
+<<<<<<< HEAD
 
 
 class Question(models.Model):
@@ -47,6 +48,7 @@ class Question(models.Model):
 
     def approve_comment(self):
         return self.comments.filter(approve_comment=True)
+
     # def get_absolute_url(self):
     #     return reverse("question_paper", kwargs={'subid': self.subject_id})
 
@@ -54,6 +56,11 @@ class Question(models.Model):
         return str(self.subject)
 
 
+||||||| merged common ancestors
+=======
+
+
+>>>>>>> comments
 class College(models.Model):
     college_name = models.CharField(max_length=30)
 
@@ -73,4 +80,26 @@ class Comment(models.Model):
         self.save()
 
     def __str__(self):
+<<<<<<< HEAD
         return self.text
+
+ # def get_absolute_url(self):
+ #        return reverse('show_paper',kwargs={'subid': self.subject_id})
+
+        # reverse offers us functionality not to hard code the url and to redirect the page as per the requirement,
+        # reverse(viewName)
+||||||| merged common ancestors
+        return self.college_name
+=======
+        return self.college_name
+
+
+class Comments(models.Model):
+    subject = models.ForeignKey('Subject', on_delete=models.CASCADE, default=True)
+    name = models.CharField(max_length=20)
+    body = models.TextField(max_length=1000)
+    publish = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.name
+>>>>>>> comments
