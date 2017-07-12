@@ -3,12 +3,6 @@ from django.http import HttpResponse
 import datetime
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import render, redirect, render_to_response, get_object_or_404
-from django.contrib.auth import authenticate, login
-from django.views.generic import View
-from .forms import UserForm, CommentForm
-from .models import Semester, Branch, Subject, College, Question, Comment
 
 
 def indexPage(request):
@@ -26,6 +20,13 @@ def show_subject(request, cid, bid, sid):
     # = %s', % [param, params2]
     subject_views = Subject.objects.raw(
         'SELECT * FROM bank_subject WHERE college_id=%s AND branch_id = %s AND semester_id = %s', [cid, bid, sid])
+    return render(request, 'bank/subjects.html', {'subject_views': subject_views, 'cid': cid, 'bid': bid, 'sid': sid})
+
+# 'SELECT * FROM bank_subject WHERE branch_id = %(key)s AND semester_id = %(key)s', [param, params2]
+
+
+def show_sem(request, cid, bbid):
+    semester_views = Semester.objects.all()
     return render(request, 'bank/subjects.html', {'subject_views': subject_views, 'cid': cid, 'bid': bid, 'sid': sid})
 
 # 'SELECT * FROM bank_subject WHERE branch_id = %(key)s AND semester_id = %(key)s', [param, params2]

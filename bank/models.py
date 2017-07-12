@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.utils import timezone
@@ -25,7 +26,8 @@ class Subject(models.Model):
     branch = models.ForeignKey('Branch', on_delete=models.CASCADE, default=True)
     subject_name = models.CharField(max_length=30)
     subject_image = models.FileField(default=False, blank=True)
-    question_image = models.FileField(default=False, blank=True)
+    question_image1 = models.FileField(default=False, blank=True)
+    question_image2 = models.FileField(default=False, blank=True)
 
     def __str__(self):
         return self.subject_name
@@ -41,14 +43,7 @@ class Question(models.Model):
     question_two_a = models.ImageField(blank=True)
     question_two_b = models.ImageField(blank=True)
     question_3_a = models.ImageField(blank=True)
-    question_3_b = models.ImageField(blank=True)
-
-    def approve_comment(self):
-        return self.comments.filter(approve_comment=True)
-
-    # def get_absolute_url(self):
-    #     return reverse("question_paper", kwargs={'subid': self.subject_id})
-
+    question_3_b = models.ImageField(blank=True) def approve_comment(self): return self.comments.filter(approve_comment=True) # def get_absolute_url(self): #     return reverse("question_paper", kwargs={'subid': self.subject_id}) 
     def __str__(self):
         return str(self.subject)
 
@@ -74,8 +69,3 @@ class Comment(models.Model):
     def __str__(self):
         return self.text
 
- # def get_absolute_url(self):
- #        return reverse('show_paper',kwargs={'subid': self.subject_id})
-
-        # reverse offers us functionality not to hard code the url and to redirect the page as per the requirement,
-        # reverse(viewName)
