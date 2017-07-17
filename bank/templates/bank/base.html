@@ -19,13 +19,13 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">-->
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+        <a href="{% url 'bank:indexpage' %}">Home</a>
+        <a href="{% url 'bank:branch' pk=1 %}">BIT PATNA</a>
+        <a href="{% url 'bank:branch' pk=2 %}">IIT PATNA</a>
+        <a href="{% url 'bank:branch' pk=3 %}">NIT PATNA</a>
     </div>
     <!-- Use any element to open the sidenav -->
-    <span style="font-size:30px;cursor:pointer;z-index:100" onclick="openNav()">&#9776;</span>
+    <span style="font-size:30px;cursor:pointer;z-index:100;position:absolute;top:10px;left:20px;" onclick="openNav()">&#9776;</span>
     <div id="main">
         {% block body %} {% endblock %}
     </div>
