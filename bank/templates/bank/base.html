@@ -9,17 +9,39 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" href="{% static 'bank/style.css' %}"> {% block styles %} {% endblock %}
     <script src="{% static 'bank/nav.js' %}"></script>
-
     <link rel="stylesheet" href="{% static 'bank/quesbox.css' %}">
+    <link rel="stylesheet" href="{% static 'bank/nav.css' %}">
 </head>
 
 <body>
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">-->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+    <!-- Use any element to open the sidenav -->
+    <span style="font-size:30px;cursor:pointer;z-index:100" onclick="openNav()">&#9776;</span>
+    <div id="main">
+        {% block body %} {% endblock %}
+    </div>
+    <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
 
-    {% block body %} {% endblock %}
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.body.style.backgroundColor = "white";
+    }
+    </script>
 </body>
 
 </html>

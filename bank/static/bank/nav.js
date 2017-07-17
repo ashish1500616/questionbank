@@ -1,6 +1,4 @@
-/**
- * Created by jayesh123 on 6/16/2017.
- */
+
 function openNav() {
     document.getElementById("mySidenav").style.width = "70%";
     // document.getElementById("flipkart-navbar").style.width = "50%";
