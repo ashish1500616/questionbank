@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.http import HttpResponse
 from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.utils import timezone
@@ -74,3 +75,32 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+class Reject(models.Model):
+    college = models.ForeignKey('College', on_delete=models.CASCADE, default=True)
+    semester = models.ForeignKey('Semester', on_delete=models.CASCADE, default=True)
+    branch = models.ForeignKey('Branch', on_delete=models.CASCADE, default=True)
+    subject_name = models.CharField(max_length=30)
+    paper = models.ImageField(upload_to='profile_pics',blank=True)
+
+
+    def __str__(self):
+        return self.subject_name
+
+class Paper(models.Model):
+    college = models.ForeignKey('College', on_delete=models.CASCADE, default=True)
+    semester = models.ForeignKey('Semester', on_delete=models.CASCADE, default=True)
+    branch = models.ForeignKey('Branch', on_delete=models.CASCADE, default=True)
+    subject = models.CharField(max_length=100)
+    upload = models.FileField()
+
+
+    def get_absolute_url(self):
+       return reverse('bank:home',)
+
+    def __str__(self):
+        return self.subject
+
+
+
+

@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django import forms
-from .models import Comment
+from .models import Comment,Reject
 
 
 class UserForm(forms.ModelForm):
@@ -16,3 +16,18 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('author', 'text')
+
+
+class FormName(forms.Form):
+    name = forms.CharField()
+    email = forms.EmailField()
+    text = forms.CharField(widget=forms.Textarea)
+
+
+class SubjectForm(forms.ModelForm):
+
+    class Meta:
+        model = Reject
+        fields = '__all__'
+
+

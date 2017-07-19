@@ -4,7 +4,10 @@ from . import views
 app_name = 'bank'
 #[-BIT]IT\W\d+\W+
 urlpatterns = [
-    url(r'^$', views.indexPage, name='indexpage'),
+    url(r'^$', views.indexPage, name='home'),
+    url(r'^form/$', views.form_name_view, name='form_name_view'),
+    url(r'^model/$', views.users, name='users'),
+
 
     url(r'^college/(?P<pk>\d+)/$', views.show_branch, name='branch'),
 
@@ -20,6 +23,8 @@ urlpatterns = [
     url(r'^paper/(?P<subid>\d+)/approve/$',
         views.comment_approve, name='comment_approve'),
     url(r'^paper/(?P<subid>\d+)/remove/$', views.comment_remove, name='comment_remove'),
+    url(r'paper/add/$', views.PaperCreate.as_view(), name='paper-add'),
+
 
 
 ]
